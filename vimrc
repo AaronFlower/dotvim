@@ -10,8 +10,16 @@
 "	    for OpenVMS:  sys$login:.vimrc
 
 " pathogen activation by easonzhan
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags() 
+
+" Pathogen load
+filetype off
+
+call pathogen#infect()
+call pathogen#helptags()
+
+filetype plugin indent on
+syntax on
+
 
 " When started as "evim", evim.vim will already have done these settings.
 if v:progname =~? "evim"
