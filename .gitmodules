@@ -7,3 +7,6 @@
 [submodule "/Users/easonzhan/.vim/bundle/nerdtree"]
 	path = /Users/easonzhan/.vim/bundle/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
+[submodule "/Users/easonzhan/.vim/bundle/nerdtree-git-plugin"]
+	path = /Users/easonzhan/.vim/bundle/nerdtree-git-plugin
+	url = https://github.com/Xuyuanp/nerdtree-git-plugin.git
