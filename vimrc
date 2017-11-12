@@ -130,3 +130,9 @@ set dir=/private/tmp
 
 " nerdtree
 autocmd vimenter * NERDTree
+
+" toggle NERDTree
+map <C-n> :NERDTreeToggle<CR>
+
+" close vim app if only NERDTree exits
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
