@@ -20,3 +20,8 @@ Install plugins as submodudles
 	git commit -m "Install Fugitive.vim bundle as a submodule."
 
 Ref: http://vimcasts.org/episodes/synchronizing-plugins-with-git-submodules-and-pathogen/
+
+
+### Plugins
+
+- [Emmet 中文参考文档](https://zfanw.com/blog/zencoding-vim-tutorial-chinese.html)

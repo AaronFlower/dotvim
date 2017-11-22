@@ -136,3 +136,7 @@ map <C-n> :NERDTreeToggle<CR>
 
 " close vim app if only NERDTree exits
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+
+" remap emmet-vim default <C-Y> leader
+let g:user_emmet_leader_key='<C-E>'
