@@ -10,3 +10,6 @@
 [submodule "/Users/easonzhan/.vim/bundle/nerdtree-git-plugin"]
 	path = /Users/easonzhan/.vim/bundle/nerdtree-git-plugin
 	url = https://github.com/Xuyuanp/nerdtree-git-plugin.git
+[submodule "bundle/emmet-vim"]
+	path = bundle/emmet-vim
+	url = https://github.com/mattn/emmet-vim.git
