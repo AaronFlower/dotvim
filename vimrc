@@ -140,3 +140,12 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 
 " remap emmet-vim default <C-Y> leader
 let g:user_emmet_leader_key='<C-E>'
+
+
+" vim guidelines
+set colorcolumn=110
+highlight ColorColumn ctermbg=darkgray
+
+
+" vim highlight current line
+let g:conoline_auto_enable = 1
