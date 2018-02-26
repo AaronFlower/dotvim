@@ -14,13 +14,18 @@
 " Pathogen load
 filetype off
 
+" To disable a plugin, add it's bundle name to the following list
+" let g:pathogen_disabled = ['dracula-vim']
+
 call pathogen#infect()
 call pathogen#helptags()
 
 filetype plugin indent on
 syntax on
 
+" color scheme disable dracula and use gruvbox
 color dracula
+" colorscheme gruvbox
 
 " When started as "evim", evim.vim will already have done these settings.
 if v:progname =~? "evim"
@@ -143,9 +148,10 @@ let g:user_emmet_leader_key='<C-E>'
 
 
 " vim guidelines
-set colorcolumn=110
+set colorcolumn=100
 highlight ColorColumn ctermbg=darkgray
 
 
 " vim highlight current line
 let g:conoline_auto_enable = 1
+
