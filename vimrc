@@ -151,3 +151,5 @@ let g:user_emmet_leader_key='<C-E>'
 set colorcolumn=100
 highlight ColorColumn ctermbg=darkgray
 
+" EditorConfig
+let g:EditorConfig_core_mode = 'external_command'
