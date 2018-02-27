@@ -9,8 +9,11 @@ Create syslinks:
 Switch to the `~./vim` directory, and fetch submodules:
 
 	cd ~/.vim
-	git submodule init
-	git submodule update
+	git submodule update --init --recursive
+
+For YouCompleteMe Plugin Your should execute:
+	cd ~/.vim/bundle/YouCompleteMe
+	./install.py --go-completer --js-completer --clang-completer 
 
 Install plugins as submodudles
 
