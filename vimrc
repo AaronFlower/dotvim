@@ -153,3 +153,6 @@ highlight ColorColumn ctermbg=darkgray
 
 " EditorConfig
 let g:EditorConfig_core_mode = 'external_command'
+
+" If installed using Homebrew
+set rtp+=/usr/local/opt/fzf
