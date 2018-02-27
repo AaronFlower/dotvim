@@ -151,7 +151,3 @@ let g:user_emmet_leader_key='<C-E>'
 set colorcolumn=100
 highlight ColorColumn ctermbg=darkgray
 
-
-" vim highlight current line
-let g:conoline_auto_enable = 1
-
