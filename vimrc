@@ -164,6 +164,9 @@ call plug#begin('~/.vim/plugged')
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 
+" AirLine
+Plug 'vim-airline/vim-airline'
+
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
