@@ -154,5 +154,16 @@ highlight ColorColumn ctermbg=darkgray
 " EditorConfig
 let g:EditorConfig_core_mode = 'external_command'
 
-" If installed using Homebrew
-set rtp+=/usr/local/opt/fzf
+" Use Vim-plug as plugins manager
+" Plugins will be downloaded under the specified directory.
+call plug#begin('~/.vim/plugged')
+
+" Declare the list of plugins
+
+" Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
+
+" List ends here. Plugins become visible to Vim after this call.
+call plug#end()
+
