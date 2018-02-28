@@ -154,7 +154,7 @@ highlight ColorColumn ctermbg=darkgray
 " EditorConfig
 let g:EditorConfig_core_mode = 'external_command'
 
-" Use Vim-plug as plugins manager
+" Use Vim-plug as plugins manager ---{{{
 " Plugins will be downloaded under the specified directory.
 call plug#begin('~/.vim/plugged')
 
@@ -167,6 +167,80 @@ Plug 'junegunn/fzf.vim'
 " AirLine
 Plug 'vim-airline/vim-airline'
 
+" Tomorrow Theme
+Plug 'chriskempson/base16-vim'
+
+" Vue Syntax
+Plug 'posva/vim-vue'
+
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
+" }}}
 
+" Save marks when exit
+set viminfo='100,f1
+
+" fzf config
+
+" <### Editor KeyMap Begin###> ----{{{
+" Set mapleader, maplocalleader
+let mapleader=","
+let maplocalleader=","
+
+" edit your vimrc
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+
+" source your vimrc
+nnoremap <leader>sv :source $MYVIMRC<cr>
+
+" switch current line with next line
+nnoremap - ddp
+
+" switch current line with previous line
+nnoremap _ ddkP
+
+" Convert word to uppercase in Insert Mode	
+inoremap <leader><c-u> <esc>gUiwea
+
+" Convert word to uppercase in Normal Mode
+nnoremap <leader><c-u> gUiw
+
+" Wrap word with "
+nnoremap <leader>" viw<esc>a"<esc>bi"<esc>lel
+
+
+" Wrap word with ' 
+nnoremap <leader>' viw<esc>a'<esc>bi'<esc>lel
+
+" Wrap word with () 
+nnoremap <leader>( viw<esc>a)<esc>bi(<esc>lel
+
+
+" Habit breaking arrow keys and esc key ---- {{{
+noremap <Up> <nop>
+noremap <down> <nop>
+noremap <left> <nop>
+noremap <right> <nop>
+
+inoremap <Up> <nop>
+inoremap <down> <nop>
+inoremap <left> <nop>
+inoremap <right> <nop>
+" }}}
+
+" <### Ediror KeyMap End ###>
+" }}}
+
+
+" Abbreviations
+" eles else
+:iabbrev eles else 
+
+
+" Folding Vimscript files
+" Vimscript file setting --------{{{
+augroup FileType_vim
+	autocmd!
+	autocmd FileType vim setlocal foldmethod=marker
+augroup END
+" }}}
