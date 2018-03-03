@@ -11,6 +11,8 @@
 
 " pathogen activation by easonzhan
 
+echo ">_._<"
+
 " Pathogen load
 filetype off
 
@@ -173,6 +175,12 @@ Plug 'chriskempson/base16-vim'
 " Vue Syntax
 Plug 'posva/vim-vue'
 
+" Vim Snippets
+Plug 'honza/vim-snippets'
+
+" Vim sftp sync plugin
+Plug 'eshion/vim-sync'
+
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 " }}}
@@ -215,6 +223,12 @@ nnoremap <leader>' viw<esc>a'<esc>bi'<esc>lel
 " Wrap word with () 
 nnoremap <leader>( viw<esc>a)<esc>bi(<esc>lel
 
+" Open file with zfz
+nnoremap <c-p> :Files<cr>
+inoremap <c-p> :Files<cr>
+	
+" Grep WORD
+nnoremap <leader>g :silent execute "grep! -R " . shellescape(expand("<cWORD>")) . " ."<cr><c-l>:copen<cr>
 
 " Habit breaking arrow keys and esc key ---- {{{
 noremap <Up> <nop>
