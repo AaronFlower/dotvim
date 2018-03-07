@@ -26,7 +26,7 @@ filetype plugin indent on
 syntax on
 
 " color scheme disable dracula and use gruvbox
-color dracula
+" color dracula
 " colorscheme gruvbox
 
 " When started as "evim", evim.vim will already have done these settings.
@@ -117,6 +117,8 @@ endif
 
 set nu
 
+" Autowrite that writes the content of the file automatically if you call :make
+set autowrite
 
 "For tab characters that appear 2-spaces-wide:
 set tabstop=2
@@ -136,10 +138,10 @@ set dir=/private/tmp
 
 
 " nerdtree
-autocmd vimenter * NERDTree
+" autocmd vimenter * NERDTree
 
 " toggle NERDTree
-map <C-n> :NERDTreeToggle<CR>
+" map <C-n> :NERDTreeToggle<CR>
 
 " close vim app if only NERDTree exits
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
@@ -165,12 +167,14 @@ call plug#begin('~/.vim/plugged')
 " Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
+Plug 'mileszs/ack.vim'
 
 " AirLine
 Plug 'vim-airline/vim-airline'
 
 " Tomorrow Theme
 Plug 'chriskempson/base16-vim'
+Plug 'fatih/molokai'
 
 " Vue Syntax
 Plug 'posva/vim-vue'
@@ -181,6 +185,11 @@ Plug 'honza/vim-snippets'
 " Vim sftp sync plugin
 Plug 'eshion/vim-sync'
 
+" Vim go plugin
+Plug 'fatih/vim-go'
+Plug 'AndrewRadev/splitjoin.vim'
+"Plug 'SirVer/ultisnips'
+
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 " }}}
@@ -189,11 +198,24 @@ call plug#end()
 set viminfo='100,f1
 
 " fzf config
+let $FZF_DEFAULT_COMMAND = 'fd --type f --hidden --follow --exclude .git'
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
 
 " <### Editor KeyMap Begin###> ----{{{
 " Set mapleader, maplocalleader
 let mapleader=","
 let maplocalleader=","
+
+" insert mode user jk to ESC
+inoremap jk <esc>
+inoremap <esc> <nop>
+
+" save your file
+nnoremap <leader>s :w<cr>
+" close your file
+nnoremap <leader>q :q<cr>
 
 " edit your vimrc
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
@@ -226,9 +248,32 @@ nnoremap <leader>( viw<esc>a)<esc>bi(<esc>lel
 " Open file with zfz
 nnoremap <c-p> :Files<cr>
 inoremap <c-p> :Files<cr>
+
+" quickfix
+noremap <c-n> :cnext<cr>
+noremap <c-m> :cprevious<cr>
+nnoremap <leader>a :cclose<cr>
+
+" Go
+autocmd FileType go nmap <leader>r  <Plug>(go-run)
+autocmd FileType go nmap <leader>t  <Plug>(go-test)
+autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
+autocmd FileType go nmap <Leader>i <Plug>(go-info)
+
+" run :GoBuild or :GoTestCompile based on the go file
+function! s:build_go_files()
+  let l:file = expand('%')
+  if l:file =~# '^\f\+_test\.go$'
+    call go#test#Test(0, 1)
+  elseif l:file =~# '^\f\+\.go$'
+    call go#cmd#Build(0)
+  endif
+endfunction
+
+autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
 	
 " Grep WORD
-nnoremap <leader>g :silent execute "grep! -R " . shellescape(expand("<cWORD>")) . " ."<cr><c-l>:copen<cr>
+" nnoremap <leader>g :silent execute "grep! -R " . shellescape(expand("<cWORD>")) . " ."<cr><c-l>:copen<cr>
 
 " Habit breaking arrow keys and esc key ---- {{{
 noremap <Up> <nop>
@@ -258,3 +303,22 @@ augroup FileType_vim
 	autocmd FileType vim setlocal foldmethod=marker
 augroup END
 " }}}
+
+" VimGO -zo----{{{
+let g:go_highlight_types = 1
+let g:go_highlight_build_constraints = 1
+let g:go_metalinter_enabled = ['golint', 'errcheck']
+let g:go_metalinter_autosave = 1
+
+let g:go_auto_type_info = 1
+set updatetime=100
+" }}}
+
+" Colorscheme after plugin loaded --- {{{
+
+" monokai
+let g:rehash256 = 1
+let g:molokai_original = 1
+color molokai
+
+"}}}
