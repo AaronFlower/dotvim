@@ -28,3 +28,6 @@ Ref: http://vimcasts.org/episodes/synchronizing-plugins-with-git-submodules-and-
 ### Plugins
 
 - [Emmet 中文参考文档](https://zfanw.com/blog/zencoding-vim-tutorial-chinese.html)
+
+## Todo
+- [ ] Use vim-plug to subsitute pathogen.
