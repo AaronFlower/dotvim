@@ -182,9 +182,6 @@ Plug 'posva/vim-vue'
 " Vim Snippets
 Plug 'honza/vim-snippets'
 
-" Vim sftp sync plugin
-Plug 'eshion/vim-sync'
-
 " Vim go plugin
 Plug 'fatih/vim-go'
 Plug 'AndrewRadev/splitjoin.vim'
